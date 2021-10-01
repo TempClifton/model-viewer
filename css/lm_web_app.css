@@ -1,0 +1,294 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	position: fixed; /* Prevents mobile Safari from doing some wacky scroll-to-nowhere-and-snap-back. */
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+canvas {
+	margin: 0px;
+	padding: 0px;
+    display: block;
+}
+
+body {
+	background-color: var(--lm-bg-color);
+	color: var(--lm-text-color);
+/*	font-family: 'Fauna One', serif;*/
+/*	font-family: 'Roboto', sans-serif;*/
+/*	font-family: 'Segoe UI', 'Lucida Grande', 'Ubuntu', 'sans-serif';*/
+/*	font: menu;*/
+	font-family: -apple-system, BlinkMacSystemFont,
+		"Segoe UI", "Roboto", "Oxygen",
+		"Ubuntu", "Cantarell", "Fira Sans",
+		"Droid Sans", "Helvetica Neue", sans-serif;
+	font-size: 0.75em;
+}
+
+.panel {
+	background-color: var(--lm-panel-color);
+	border-radius: var(--lm-panel-border-radius);
+	margin: var(--lm-panel-margin);
+	/* background-color: red;
+	border-radius: 16px;
+	margin: 4px; */
+}
+
+textarea, textarea:focus {
+    background-color: var(--lm-input-background-color);
+    color: var(--lm-input-text-color);
+    border-radius: 8px;
+	border: 2px solid var(--lm-input-border-color);
+	outline: none; /* remove the blue glow (Is this a good idea? I hate how it looks.) */
+}
+
+textarea.source {
+	padding: 10px;
+	font-family: monospace;
+	font-size: 120%;
+	font-weight: bold;
+	overflow-y: scroll; /* I'd prefer to leave this as auto, but in Chrome it causes the textarea to sometime fail in the CSS grid layout. */
+	/*overflow: scroll;*/
+	white-space: pre;
+	word-wrap: normal;
+	resize: none;
+	tab-size : 4;
+}
+
+textarea.expanded { /* Not sure what this style was supposed to be doing. Something related to Foundation? */
+	box-sizing: border-box; /* fit parent width */
+	flex-basis: 100%;
+	flex-shrink: 1;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+button {
+	background-color: var(--lm-button-background-color);
+	background: linear-gradient(var(--lm-button-gradient-1-color), var(--lm-button-gradient-2-color));
+	border-radius: 8px;
+	border: 2px solid var(--lm-button-border-color);
+	color: var(--lm-button-text-color);
+	outline: none;
+
+	height: 2em;
+}
+
+button:hover {
+	background: linear-gradient(var(--lm-button-hover-gradient-1-color), var(--lm-button-hover-gradient-2-color));
+}
+
+button:active {
+	background: linear-gradient(var(--lm-button-active-gradient-1-color), var(--lm-button-active-gradient-2-color));
+	border: 2px solid var(--lm-button-active-border-color);
+}
+
+input[type=text], input[type=number], select {
+	background-color: var(--lm-input-background-color);
+	color: var(--lm-input-text-color);
+
+    padding: 5px;
+    border: 2px solid var(--lm-input-border-color);
+    border-radius: 4px;
+}
+
+input[type=text]:disabled, input[type=number]:disabled, select:disabled {
+	background-color: var(--lm-input-background-color);
+	color: var(--lm-input-disabled-color);
+
+    padding: 5px;
+    border: 2px solid var(--lm-input-border-color);
+    border-radius: 4px;
+}
+
+.funkyButton {
+	/*transition: all 0.25s;*/
+	transition: transform 0.25s;
+}
+
+.funkyButton:hover {
+	/*background-color: rgba(0, 220, 0, 1.0);*/
+	/*opacity: 1.0;*/
+	/*position: relative;
+	top: -10px;*/
+	transform: scale(1.5) rotate(10deg);
+}
+
+.bigLabel {
+    position: relative;
+	display: inline-block;
+	color: rgb(164, 164, 164);
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.smallLabel {
+    position: relative;
+	display: inline-block;
+	color: rgb(164, 164, 164);
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.error {
+	color: var(--lm-error-color);
+	/*font-weight: bold;*/
+}
+
+/*
+Dropdown stuff comes from here:
+https://www.w3schools.com/css/css_dropdowns.asp
+
+The container <div> - needed to position the dropdown content
+*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+	/* background: linear-gradient(rgba(94, 84, 81, 0.9), rgba(57, 46, 43, 0.9)); */
+	background: linear-gradient(var(--lm-dropdown-gradient-1-color), var(--lm-dropdown-gradient-2-color));
+    border-radius: 8px;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-dialog {
+	padding: 16px;
+}
+
+.dropdown-dialog div {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    _color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover { background-color: var(--lm-dropdown-hover-color); border-radius: 8px; }
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show { display:block; }
+
+.inlineSpinner {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	border: 4px solid var(--lm-spinner-color);
+	/*border-left: 4px solid rgb(205, 150, 0);*/
+	border-top: 4px solid var(--lm-spinner-highlight-color);
+	border-radius: 50%;
+	width: calc(2em - 4px);
+	height: calc(2em - 4px);
+    display: inline-block; /* It was kind of fiddly to get the alignment working. */
+	vertical-align: middle; /* display and vertical-align are pretty critical here to get it to work right. */
+	visibility: hidden; /* Hidden by default until the app needs to show it. */
+	-webkit-animation: spin 1s linear infinite;
+	animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+/* I don't know why this was here...yuck...
+i {
+    border: solid rgb(220, 220, 220);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+	margin-left: 6px;
+	margin-bottom: 2px;
+}*/
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+/********************************************************
+Support for Material Design icons
+https://material.io/tools/icons/?style=baseline
+*/
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../webfonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(../webfonts/MaterialIcons-Regular.woff2) format('woff2'),
+    url(../webfonts/MaterialIcons-Regular.woff) format('woff'),
+    url(../webfonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/*******************************************************/

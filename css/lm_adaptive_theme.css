@@ -1,0 +1,112 @@
+/* Light mode - default, don't use a media query */
+/* @media (prefers-color-scheme: light) { */
+:root {
+	--lm-bg-color: rgb(200, 200, 200);
+	--lm-text-color: rgb(96, 96, 96);
+	--lm-text-selected-color: rgb(0, 0, 0);
+	--lm-text-disabled-color: rgb(192, 192, 192);
+	--lm-outline-color: rgb(128, 128, 128);
+	--lm-selection-color: rgb(212, 116, 58);
+	--lm-secondary-selection-color: rgb(233, 156, 109);
+	--lm-toggled-color: rgb(212, 116, 58);
+	--lm-hover-color: rgb(154, 106, 77);
+	--lm-highlight-color: rgb(255, 0, 0);
+	--lm-error-color: rgb(255, 96, 96);
+
+	--lm-panel-color: rgb(240, 240, 240);
+	--lm-canvas-color: rgb(192, 192, 192);
+
+	--lm-dropdown-gradient-1-color: rgba(255, 255, 255, 0.9);
+	--lm-dropdown-gradient-2-color: rgba(128, 128, 128, 0.9);
+	--lm-dropdown-hover-color: rgba(90, 146, 248, 0.5);
+
+	--lm-spinner-color: rgba(128, 128, 128, 0.1);
+	--lm-spinner-highlight-color: rgb(205, 150, 0);
+
+	--lm-input-background-color: rgb(220, 220, 220);
+	--lm-input-text-color: rgb(64, 64, 64);
+	--lm-input-disabled-color: rgb(128, 128, 128);
+	--lm-input-border-color: rgb(128, 128, 128);
+
+	--lm-button-background-color: rgb(74, 62, 60);
+	--lm-button-text-color: rgb(220, 220, 220);
+	--lm-button-disabled-color: rgb(96, 96, 96);
+	--lm-button-border-color: rgb(49, 49, 49);
+	--lm-button-gradient-1-color: rgb(74, 62, 60);
+	--lm-button-gradient-2-color: rgb(37, 26, 23);
+	--lm-button-hover-gradient-1-color: rgb(94, 84, 81);
+	--lm-button-hover-gradient-2-color: rgb(57, 46, 43);
+	--lm-button-active-gradient-1-color: rgb(94, 84, 81);
+	--lm-button-active-gradient-2-color: rgb(57, 46, 43);
+	--lm-button-active-border-color: rgb(205, 150, 0);
+
+	--lm-tooltip-background-color: rgb(192, 192, 96);
+	--lm-tooltip-text-color: rgb(0, 0, 0);
+
+	--lm-hot-text-color: rgb(120, 120, 247);
+	--lm-hot-outline-color: rgb(192, 192, 192);
+
+	--lm-outer-padding: 8px;
+	--lm-inner-padding: 8px;
+	--lm-panel-margin: 2px;
+	--lm-panel-border-radius: 8px;
+	--lm-widget-border-radius: 4px;
+}	
+/* } */
+
+@media (prefers-color-scheme: dark) {
+:root {
+	--lm-bg-color: rgb(56, 56, 56);
+	--lm-text-color: rgb(218, 218, 218);
+	--lm-text-selected-color: rgb(0, 0, 0);
+	--lm-text-disabled-color: rgb(132, 132, 132);
+	--lm-outline-color: rgb(132, 132, 132);
+	/* --lm-selection-color: rgb(90, 146, 248);
+	--lm-secondary-selection-color: rgb(126, 158, 218); */
+	--lm-selection-color: rgb(197, 143, 39);
+	--lm-secondary-selection-color: rgb(206, 167, 95);
+	--lm-toggled-color: rgb(197, 143, 39);
+	--lm-hover-color: rgb(160, 188, 239);
+	--lm-highlight-color: rgb(255, 0, 0);
+	--lm-error-color: rgb(255, 96, 96);
+
+	--lm-panel-color: rgb(81, 81, 81);
+	--lm-canvas-color: rgb(66, 66, 66);
+
+	--lm-dropdown-gradient-1-color: rgba(66, 66, 66, 0.9);
+	--lm-dropdown-gradient-2-color: rgba(31, 31, 31, 0.9);
+	--lm-dropdown-hover-color: rgba(90, 146, 248, 0.5);
+
+	--lm-spinner-color: rgba(220, 220, 220, 0.1);
+	--lm-spinner-highlight-color: rgb(205, 150, 0);
+
+	--lm-input-background-color: rgb(66, 66, 66);
+	--lm-input-text-color: rgb(218, 218, 218);
+	--lm-input-disabled-color: rgb(132, 132, 132);
+	--lm-input-border-color: rgb(132, 132, 132);
+
+	--lm-button-background-color: rgb(74, 62, 60);
+	--lm-button-text-color: rgb(220, 220, 220);
+	--lm-button-disabled-color: rgb(96, 96, 96);
+	--lm-button-border-color: rgb(49, 49, 49);
+	--lm-button-gradient-1-color: rgb(74, 62, 60);
+	--lm-button-gradient-2-color: rgb(37, 26, 23);
+	--lm-button-hover-gradient-1-color: rgb(94, 84, 81);
+	--lm-button-hover-gradient-2-color: rgb(57, 46, 43);
+	--lm-button-active-gradient-1-color: rgb(94, 84, 81);
+	--lm-button-active-gradient-2-color: rgb(57, 46, 43);
+	--lm-button-active-border-color: rgb(205, 150, 0);
+
+	--lm-tooltip-background-color: rgb(220, 220, 128);
+	--lm-tooltip-text-color: rgb(0, 0, 0);
+
+	--lm-hot-text-color: rgb(102, 163, 233);
+	--lm-hot-outline-color: rgb(132, 132, 132);
+
+	--lm-outer-padding: 8px;
+	--lm-inner-padding: 8px;
+	--lm-panel-margin: 2px;
+	--lm-panel-border-radius: 8px;
+	--lm-widget-border-radius: 4px;
+}
+}
